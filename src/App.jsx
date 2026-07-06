@@ -7,7 +7,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <main className="min-h-screen">
+        <main className='min-h-screen'>
           <AppRoutes />
         </main>
       </LanguageProvider>

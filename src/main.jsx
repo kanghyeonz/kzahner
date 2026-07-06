@@ -7,14 +7,11 @@ import App from '@/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Helmet
-      defaultTitle='Kanghyeon Zahner'
-      titleTemplate='%s | Kanghyeon Zahner'
-    >
+    <Helmet defaultTitle='Kanghyeon Kim' titleTemplate='%s | Kanghyeon Kim'>
       <meta charSet='utf-8' />
       <html lang='en' amp />
     </Helmet>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

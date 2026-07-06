@@ -1,78 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanghyeon Kim</title>
+    <meta
+      name="description"
+      content="Kanghyeon Kim (김강현) — master's student in Data & AI at Institut Polytechnique de Paris, researching multilingual LLM interpretability at Télécom Paris. Legally registered in Switzerland as Kanghyeon Zahner."
+    />
+    <meta name="author" content="Kanghyeon Kim" />
+    <meta
+      name="keywords"
+      content="Kanghyeon Kim, Kanghyeon Zahner, AI Researcher, Machine Learning, Natural Language Processing, LLM Interpretability, IP Paris, KAIST"
+    />
+    <meta name="apple-mobile-web-app-title" content="Kanghyeon Kim" />
+    <meta name="application-name" content="Kanghyeon Kim" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kanghyeon Zahner</title>
-  <meta name="description" content="Kanghyeon Zahner's personal website">
-  <meta name="author" content="Kanghyeon Zahner">
-  <meta name="keywords"
-    content="Kanghyeon Zahner, AI Researcher, Machine Learning, Computer Vision, Natural Language Processing">
-  <meta name="apple-mobile-web-app-title" content="Kanghyeon Zahner">
-  <meta name="application-name" content="Kanghyeon Zahner">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Kanghyeon Kim" />
+    <meta
+      property="og:description"
+      content="Kanghyeon Kim's personal website"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kzahner.com" />
+    <meta property="og:image" content="/favicon/large-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kanghyeon Kim" />
+    <meta
+      name="twitter:description"
+      content="Kanghyeon Kim's personal website"
+    />
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Kanghyeon Zahner">
-  <meta property="og:description" content="Kanghyeon Zahner's personal website">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kzahner.com">
-  <meta property="og:image" content="/favicon/large-og.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kanghyeon Zahner">
-  <meta name="twitter:description" content="Kanghyeon Zahner's personal website">
+    <!-- Prevent flash of incorrect theme; background colors live in CSS -->
+    <script>
+      const isDark =
+        localStorage.theme === 'dark' ||
+        (!localStorage.theme &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+    </script>
 
-  <!-- Prevent flash of incorrect theme -->
-  <script>
-    // Immediately apply dark mode if saved or system preference
-    const isDark = localStorage.theme === 'dark' ||
-      (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    <!-- GitHub Pages SPA routing - Redirect script -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
 
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.backgroundColor = 'rgb(15, 15, 15)';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.backgroundColor = 'rgb(249, 250, 251)';
-    }
-  </script>
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon/favicon.ico?v=2" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png?v=2" />
+    <meta
+      name="msapplication-TileImage"
+      content="/favicon/favicon-192.png?v=2"
+    />
+    <meta name="msapplication-TileColor" content="#5e72e4" />
 
-  <!-- GitHub Pages SPA routing - Redirect script -->
-  <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // This script checks to see if a redirect is present in the query string,
-    // converts it back into the correct url and adds it to the
-    // browser's history using window.history.replaceState(...),
-    // which won't cause the browser to attempt to load the new url.
-    (function (l) {
-      if (l.search[1] === '/') {
-        var decoded = l.search.slice(1).split('&').map(function (s) {
-          return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
-        );
-      }
-    }(window.location))
-  </script>
+    <!-- Theme color for light mode -->
+    <meta
+      name="theme-color"
+      content="#fafafa"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Theme color for dark mode -->
+    <meta
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)"
+    />
+  </head>
 
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon/kz_icon.ico">
-  <link rel="shortcut icon" href="/favicon/kz_icon.ico">
-  <meta name="msapplication-TileImage" content="/favicon/kz_icon.ico" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-
-  <!-- Theme color for light mode -->
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <!-- Theme color for dark mode -->
-  <meta name="theme-color" content="rgb(15, 15, 15)" media="(prefers-color-scheme: dark)">
-
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

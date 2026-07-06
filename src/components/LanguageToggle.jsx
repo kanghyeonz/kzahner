@@ -6,7 +6,7 @@ const LanguageToggle = () => {
   const languages = [
     { code: 'en', fullName: 'English' },
     { code: 'de', fullName: 'Deutsch' },
-    { code: 'ko', fullName: '한국어' }
+    { code: 'ko', fullName: '한국어' },
   ];
 
   const { language, changeLanguage } = useLanguage();
@@ -27,12 +27,10 @@ const LanguageToggle = () => {
       }
     };
 
-    // Add event listeners
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('touchstart', handleClickOutside);
 
     return () => {
-      // Clean up event listeners
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
@@ -50,42 +48,42 @@ const LanguageToggle = () => {
       e.stopPropagation();
     }
     changeLanguage(langCode);
-    // Keep dropdown open on mobile to provide visual feedback of selection
+    // Keep dropdown open briefly to provide visual feedback of selection
     setTimeout(() => {
       setIsOpen(false);
     }, 300);
   };
 
-  // Find current language
-  const currentLang = languages.find(lang => lang.code === language) || languages[0];
-
   return (
-    <div className="relative inline-block">
+    <div className='relative inline-block'>
       <button
         ref={buttonRef}
         onClick={toggleDropdown}
-        className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
-        aria-label="Change language"
+        className='rounded-full p-2 text-neutral-500 transition-colors hover:bg-neutral-200/60 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-white/10 dark:hover:text-neutral-100'
+        aria-label='Change language'
         aria-expanded={isOpen}
       >
-        <div className="flex items-center">
-          <FiGlobe size={20} />
-        </div>
+        <FiGlobe size={17} />
       </button>
 
       <div
         ref={dropdownRef}
-        className={`absolute right-0 top-full pt-1 w-32 z-50 ${!isOpen ? 'hidden' : 'block'}`}
+        className={`absolute right-0 top-full z-50 w-32 pt-1 ${!isOpen ? 'hidden' : 'block'}`}
       >
-        <div className="py-1 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700">
+        <div className='rounded-xl border border-neutral-200 bg-white py-1 shadow-lg dark:border-white/10 dark:bg-neutral-900'>
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={(e) => handleLanguageChange(lang.code, e)}
-              className={`flex items-center px-4 py-2 text-sm w-full text-left hover:bg-gray-100 dark:hover:bg-gray-700 ${language === lang.code ? 'bg-gray-100 dark:bg-gray-700 text-[rgb(218,41,28)] font-semibold' : 'text-gray-700 dark:text-gray-300'
-                }`}
+              className={`flex w-full items-center px-3 py-2 text-left text-sm transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-800 ${
+                language === lang.code
+                  ? 'font-medium text-accent dark:text-accent-soft'
+                  : 'text-neutral-600 dark:text-neutral-300'
+              }`}
             >
-              <span className="mr-2">{lang.code.toUpperCase()}</span>
+              <span className='mr-2 text-xs uppercase tabular-nums text-neutral-400 dark:text-neutral-500'>
+                {lang.code}
+              </span>
               <span>{lang.fullName}</span>
             </button>
           ))}
@@ -95,4 +93,4 @@ const LanguageToggle = () => {
   );
 };
 
-export default LanguageToggle; 
+export default LanguageToggle;

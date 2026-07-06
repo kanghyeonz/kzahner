@@ -1,14 +1,24 @@
 {
-  "name": "Kanghyeon Zahner",
+  "name": "Kanghyeon Kim",
   "short_name": "Kanghyeon",
   "icons": [
     {
-      "src": "/favicon/kz_icon.ico",
-      "sizes": "48x48",
-      "type": "image/x-icon"
+      "src": "/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#5e72e4",
+  "background_color": "#fafafa",
   "display": "standalone"
 }

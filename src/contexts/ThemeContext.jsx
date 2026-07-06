@@ -9,36 +9,29 @@ export const ThemeProvider = ({ children }) => {
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       // Check for saved theme or use system preference
-      return savedTheme === 'dark' ||
-        (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      return (
+        savedTheme === 'dark' ||
+        (!savedTheme &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      );
     }
     return false;
   });
 
-  // Apply theme whenever darkMode changes
+  // Apply theme whenever darkMode changes; colors are handled in CSS
   useEffect(() => {
-    // Apply the theme change immediately
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      document.body.classList.add('dark');
-      document.documentElement.style.backgroundColor = 'rgb(15, 15, 15)';
-      document.body.style.backgroundColor = 'rgb(15, 15, 15)';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.body.classList.remove('dark');
-      document.documentElement.style.backgroundColor = 'rgb(249, 250, 251)';
-      document.body.style.backgroundColor = 'rgb(249, 250, 251)';
-      localStorage.setItem('theme', 'light');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
-  // Add event listener for system theme changes
+  // Follow system theme changes unless the user has set a preference
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e) => {
-      // Only change if user hasn't set a preference
-      if (localStorage.getItem('theme') !== 'light' && localStorage.getItem('theme') !== 'dark') {
+      if (
+        localStorage.getItem('theme') !== 'light' &&
+        localStorage.getItem('theme') !== 'dark'
+      ) {
         setDarkMode(e.matches);
       }
     };
@@ -59,4 +52,4 @@ export const ThemeProvider = ({ children }) => {
 };
 
 // Custom hook to use the theme context
-export const useTheme = () => useContext(ThemeContext); 
+export const useTheme = () => useContext(ThemeContext);

@@ -1,371 +1,258 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import {
-  FiMail,
-  FiMapPin,
-  FiAward,
-  FiCalendar,
-  FiLinkedin,
-} from 'react-icons/fi';
+import { FiLinkedin, FiMail, FiMapPin } from 'react-icons/fi';
 import { useLanguage } from '../contexts/LanguageContext';
+import SectionHeader from '../components/SectionHeader';
+
+const sectionMotion = {
+  initial: { opacity: 0, y: 14 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: '-60px' },
+  transition: { duration: 0.4 },
+};
+
+const Section = ({ title, children }) => (
+  <motion.section {...sectionMotion} className='mt-14 sm:mt-16'>
+    <SectionHeader>{title}</SectionHeader>
+    <div className='mt-6 space-y-10'>{children}</div>
+  </motion.section>
+);
+
+const Entry = ({ title, titleHref, sub, date, location, children }) => (
+  <div>
+    <div className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1'>
+      <h3 className='font-semibold text-neutral-900 dark:text-neutral-100'>
+        {titleHref ? (
+          <a
+            href={titleHref}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='transition-colors hover:text-accent dark:hover:text-accent-soft'
+          >
+            {title}
+          </a>
+        ) : (
+          title
+        )}
+      </h3>
+      <span className='shrink-0 font-mono text-xs text-neutral-400 dark:text-neutral-500'>
+        {date}
+      </span>
+    </div>
+    {sub && (
+      <p className='mt-1 text-sm text-neutral-600 dark:text-neutral-400'>
+        {sub}
+      </p>
+    )}
+    {children}
+    {location && (
+      <p className='mt-2 text-xs text-neutral-400 dark:text-neutral-500'>
+        {location}
+      </p>
+    )}
+  </div>
+);
+
+const Bullets = ({ children }) => (
+  <ul className='mt-3 space-y-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400'>
+    {children}
+  </ul>
+);
+
+const Bullet = ({ children }) => (
+  <li className='flex gap-2.5'>
+    <span
+      aria-hidden='true'
+      className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/50'
+    />
+    <span>{children}</span>
+  </li>
+);
+
+const PdfLink = ({ href }) => (
+  <a
+    href={href}
+    target='_blank'
+    rel='noopener noreferrer'
+    className='ml-1.5 whitespace-nowrap text-sm font-medium text-accent transition-colors hover:text-accent-dim dark:text-accent-soft dark:hover:text-accent'
+  >
+    [PDF]
+  </a>
+);
 
 const About = () => {
   const { t } = useLanguage();
 
   return (
-    <div className='bg-white dark:bg-[rgb(15,15,15)] text-gray-900 dark:text-white py-20'>
-      <div className='container mx-auto px-4'>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className='text-center mb-16'
+    <div className='mx-auto max-w-content px-5 pb-24'>
+      {/* Header & contact */}
+      <motion.header
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className='pt-14 sm:pt-20'
+      >
+        <h1 className='text-3xl font-bold tracking-tight sm:text-4xl'>
+          {t('aboutMe')}
+        </h1>
+        <div className='mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-neutral-600 dark:text-neutral-400'>
+          <span className='inline-flex items-center gap-2'>
+            <FiMail aria-hidden='true' />
+            kanghyeon.kim (at) polytechnique.edu
+          </span>
+          <a
+            href='https://www.linkedin.com/in/kanghyeon-k-29ba44192/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='inline-flex items-center gap-2 transition-colors hover:text-accent dark:hover:text-accent-soft'
+          >
+            <FiLinkedin aria-hidden='true' />
+            Kanghyeon Kim
+          </a>
+          <span className='inline-flex items-center gap-2'>
+            <FiMapPin aria-hidden='true' />
+            {t('currentAddress')}
+          </span>
+        </div>
+        <p className='mt-4 max-w-2xl text-xs leading-relaxed text-neutral-400 dark:text-neutral-500'>
+          {t('citizenInfo')} · {t('nameExplanation')}
+        </p>
+      </motion.header>
+
+      {/* Research interests */}
+      <Section title={t('interestsTitle')}>
+        <p className='leading-relaxed text-neutral-600 dark:text-neutral-400'>
+          {t('interestsBody')}
+        </p>
+      </Section>
+
+      {/* Research experience */}
+      <Section title={t('experience')}>
+        <Entry
+          title={t('exp1Org')}
+          titleHref='https://www.telecom-paris.fr/en/home'
+          sub={`${t('exp1Role')} — ${t('exp1Sup')}`}
+          date={t('exp1Date')}
+          location={t('palaiseauFrance')}
         >
-          <h1 className='text-4xl md:text-5xl font-bold mb-4'>
-            {t('aboutMe')}
-          </h1>
-        </motion.div>
-
-        {/* Contact Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className='mb-16 bg-gray-100 dark:bg-gray-800/40 rounded-xl p-6 max-w-4xl mx-auto'
+          <Bullets>
+            <Bullet>{t('exp1Point1')}</Bullet>
+            <Bullet>{t('exp1Point2')}</Bullet>
+            <Bullet>{t('exp1Point3')}</Bullet>
+          </Bullets>
+        </Entry>
+        <Entry
+          title={t('exp2Org')}
+          titleHref='https://uilab.kr'
+          sub={`${t('exp2Role')} — ${t('exp2Sup')}`}
+          date={t('exp2Date')}
+          location={t('daejeonKorea')}
         >
-          <h2 className='text-2xl font-bold mb-6 text-[rgb(218,41,28)] text-center'>
-            {t('fullName')}
-          </h2>
-          <p className='text-gray-700 dark:text-gray-300 mb-6 text-center'>
-            {t('citizenInfo')}
-          </p>
+          <Bullets>
+            <Bullet>
+              <span className='font-medium text-neutral-800 dark:text-neutral-200'>
+                {t('proj1Name')}
+              </span>{' '}
+              — {t('proj1Desc')}
+              <PdfLink href='/documents/AAfLM.pdf' />
+            </Bullet>
+            <Bullet>
+              <span className='font-medium text-neutral-800 dark:text-neutral-200'>
+                {t('proj2Name')}
+              </span>{' '}
+              — {t('proj2Desc')}
+              <PdfLink href='/documents/FERT.pdf' />
+            </Bullet>
+          </Bullets>
+        </Entry>
+      </Section>
 
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
-            <div className='flex items-center gap-3'>
-              <div className='bg-[rgba(218,41,28,0.1)] p-3 rounded-full'>
-                <FiMail className='text-[rgb(218,41,28)]' />
-              </div>
-              <div>
-                <p className='text-sm text-gray-500 dark:text-gray-400'>
-                  {t('email')}
-                </p>
-                <p className='font-medium'>kaist19 (at) kaist.ac.kr</p>
-              </div>
-            </div>
-
-            <div className='flex items-center gap-3'>
-              <div className='bg-[rgba(218,41,28,0.1)] p-3 rounded-full'>
-                <FiLinkedin className='text-[rgb(218,41,28)]' />
-              </div>
-              <div>
-                <p className='text-sm text-gray-500 dark:text-gray-400'>
-                  LinkedIn
-                </p>
-                <u>
-                  <a
-                    href='https://www.linkedin.com/in/kanghyeon-kim-29ba44192/'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='font-medium hover:text-[rgb(218,41,28)] transition-colors'
-                  >
-                    Kanghyeon Zahner
-                  </a>
-                </u>
-              </div>
-            </div>
-
-            <div className='flex items-center gap-3'>
-              <div className='bg-[rgba(218,41,28,0.1)] p-3 rounded-full'>
-                <FiMapPin className='text-[rgb(218,41,28)]' />
-              </div>
-              <div>
-                <p className='text-sm text-gray-500 dark:text-gray-400'>
-                  {t('address')}
-                </p>
-                <p className='font-medium'>{t('currentAddress')}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className='mt-8 pt-4 border-t border-gray-200 dark:border-gray-700'>
-            <p className='text-sm text-gray-600 dark:text-gray-400 italic text-left'>
-              {t('nameExplanation')}
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Education */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className='mb-16'
+      {/* Education */}
+      <Section title={t('education')}>
+        <Entry
+          title={t('edu1School')}
+          titleHref='https://www.master-mva.com/'
+          sub={t('edu1Degree')}
+          date={t('edu1Date')}
+          location={t('gifFrance')}
+        />
+        <Entry
+          title={t('edu2School')}
+          titleHref='https://www.ip-paris.fr/en/education/masters/computer-science-program/master-year-1-data-and-artificial-intelligence'
+          sub={t('edu2Degree')}
+          date={t('edu2Date')}
+          location={t('palaiseauFrance')}
         >
-          <div className='max-w-4xl mx-auto bg-gray-100 dark:bg-gray-800/40 rounded-xl p-6'>
-            <h2 className='text-2xl font-bold mb-8 border-b border-gray-200 dark:border-gray-700 pb-4'>
-              {t('education')}
-            </h2>
+          <Bullets>
+            <Bullet>{t('edu2Point1')}</Bullet>
+            <Bullet>{t('edu2Point2')}</Bullet>
+          </Bullets>
+        </Entry>
+        <Entry
+          title={t('edu3School')}
+          titleHref='https://cs.kaist.ac.kr'
+          sub={t('edu3Degree')}
+          date={t('edu3Date')}
+          location={t('daejeonKorea')}
+        />
+      </Section>
 
-            <div className='mb-6'>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <h3 className='text-xl font-bold'>
-                  Institut Polytechnique de Paris (IP Paris)
-                </h3>
-                <div className='flex items-center text-gray-600 dark:text-gray-400'>
-                  <FiCalendar className='mr-2' />
-                  <span>Sep 2025 – Present</span>
-                </div>
-              </div>
-              <p className='text-gray-700 dark:text-gray-300 mb-2'>
-                <u>
-                  <a
-                    href='https://www.ip-paris.fr/en/education/masters/computer-science-program/master-year-1-data-and-artificial-intelligence'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='hover:text-[rgb(218,41,28)] transition-colors'
-                  >
-                    {t('msDataAI')}
-                  </a>
-                </u>
-              </p>
-              <p className='text-gray-600 dark:text-gray-400 mt-2'>
-                {t('palaiseauFrance')}
-              </p>
-            </div>
-            <div className='mb-6'>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <h3 className='text-xl font-bold'>
-                  Korea Advanced Institute of Science and Technology (KAIST)
-                </h3>
-                <div className='flex items-center text-gray-600 dark:text-gray-400'>
-                  <FiCalendar className='mr-2' />
-                  <span>Feb 2019 – Feb 2025</span>
-                </div>
-              </div>
-              <p className='text-gray-700 dark:text-gray-300 mb-2'>
-                <u>
-                  <a
-                    href='https://cs.kaist.ac.kr'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='hover:text-[rgb(218,41,28)] transition-colors'
-                  >
-                    {t('bsComputing')}
-                  </a>
-                </u>
-              </p>
-              <p className='text-gray-600 dark:text-gray-400 mt-2'>
-                {t('daejeonKorea')}
-              </p>
-            </div>
-          </div>
-        </motion.div>
+      {/* Awards */}
+      <Section title={t('awards')}>
+        <Entry
+          title={t('award1Title')}
+          sub={t('award1Desc')}
+          date={t('award1Date')}
+        />
+        <Entry
+          title={t('award2Title')}
+          sub={t('award2Desc')}
+          date={t('award2Date')}
+        />
+      </Section>
 
-        {/* Experience */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className='mb-16'
-        >
-          <div className='max-w-4xl mx-auto bg-gray-100 dark:bg-gray-800/40 rounded-xl p-6'>
-            <h2 className='text-2xl font-bold mb-8 border-b border-gray-200 dark:border-gray-700 pb-4'>
-              {t('experience')}
-            </h2>
+      {/* Military service */}
+      <Section title={t('military')}>
+        <Entry
+          title={t('milOrg')}
+          sub={t('milDesc')}
+          date={t('milDate')}
+          location={t('busanKorea')}
+        />
+      </Section>
 
-            <div className='mb-10'>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <h3 className='text-xl font-bold'>U&I Lab, KAIST</h3>
-                <div className='flex items-center text-gray-600 dark:text-gray-400'>
-                  <FiCalendar className='mr-2' />
-                  <span>Aug 2023 – Dec 2024</span>
-                </div>
-              </div>
-              <p className='text-[rgb(218,41,28)] mb-4'>
-                {t('undergradResearcher')}
-              </p>
-              <ul className='list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2'>
-                <li>{t('exp1Point1')}</li>
-                <li>
-                  {t('exp1Point2')}
-                  <ul className='list-inside pl-5 mt-1 space-y-1 text-gray-600 dark:text-gray-400'>
-                    <li>
-                      {t('exp1Project1')}
-                      <a
-                        href='/documents/AAfLM.pdf'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='ml-2 text-[rgb(218,41,28)] hover:underline'
-                      >
-                        [PDF]
-                      </a>
-                    </li>
-                    <li>
-                      {t('exp1Project2')}
-                      <a
-                        href='/documents/FERT.pdf'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='ml-2 text-[rgb(218,41,28)] hover:underline'
-                      >
-                        [PDF]
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>{t('exp1Point3')}</li>
-              </ul>
-              <p className='text-gray-600 dark:text-gray-400 mt-4'>
-                {t('daejeonKorea')}
-              </p>
-            </div>
-
-            <div>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <h3 className='text-xl font-bold'>Republic of Korea Army</h3>
-                <div className='flex items-center text-gray-600 dark:text-gray-400'>
-                  <FiCalendar className='mr-2' />
-                  <span>Feb 2021 – Aug 2022</span>
-                </div>
-              </div>
-              <p className='text-[rgb(218,41,28)] mb-4'>{t('sergeant')}</p>
-              <ul className='list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2'>
-                <li>{t('exp2Point1')}</li>
-                <li>{t('exp2Point2')}</li>
-                <li>{t('exp2Point3')}</li>
-                <li>{t('exp2Point4')}</li>
-              </ul>
-              <p className='text-gray-600 dark:text-gray-400 mt-4'>
-                {t('busanKorea')}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Awards */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className='mb-16'
-        >
-          <div className='max-w-4xl mx-auto bg-gray-100 dark:bg-gray-800/40 rounded-xl p-6'>
-            <h2 className='text-2xl font-bold mb-8 border-b border-gray-200 dark:border-gray-700 pb-4'>
-              {t('awards')}
-            </h2>
-
-            <div className='mb-6'>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <div className='flex items-start gap-3'>
-                  <div className='bg-[rgba(218,41,28,0.1)] p-2 rounded-full mt-1'>
-                    <FiAward className='text-[rgb(218,41,28)]' />
-                  </div>
-                  <div>
-                    <h3 className='text-xl font-bold'>{t('award1Title')}</h3>
-                    <p className='text-gray-700 dark:text-gray-300 mt-2'>
-                      {t('award1Desc')}
-                    </p>
-                  </div>
-                </div>
-                <div className='flex items-center text-gray-600 dark:text-gray-400 whitespace-nowrap ml-11 md:ml-0'>
-                  <FiCalendar className='mr-2' />
-                  <span>Sep 2024</span>
-                </div>
-              </div>
-              <p className='text-gray-600 dark:text-gray-400 mt-4 ml-11'>
-                {t('daejeonKorea')}
-              </p>
-            </div>
-
-            <div>
-              <div className='flex flex-col md:flex-row justify-between mb-2'>
-                <div className='flex items-start gap-3'>
-                  <div className='bg-[rgba(218,41,28,0.1)] p-2 rounded-full mt-1'>
-                    <FiAward className='text-[rgb(218,41,28)]' />
-                  </div>
-                  <div>
-                    <h3 className='text-xl font-bold'>{t('award2Title')}</h3>
-                    <p className='text-gray-700 dark:text-gray-300 mt-2'>
-                      {t('award2Desc')}
-                    </p>
-                  </div>
-                </div>
-                <div className='flex items-center text-gray-600 dark:text-gray-400 whitespace-nowrap ml-11 md:ml-0'>
-                  <FiCalendar className='mr-2' />
-                  <span>Sep 2019</span>
-                </div>
-              </div>
-              <p className='text-gray-600 dark:text-gray-400 mt-4 ml-11'>
-                {t('daejeonKorea')}
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Skills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <div className='max-w-4xl mx-auto bg-gray-100 dark:bg-gray-800/40 rounded-xl p-6'>
-            <h2 className='text-2xl font-bold mb-8 border-b border-gray-200 dark:border-gray-700 pb-4'>
-              {t('skills')}
-            </h2>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-              <div>
-                <h3 className='text-xl font-bold text-[rgb(218,41,28)] mb-4'>
-                  {t('technical')}
-                </h3>
-                <p className='text-gray-700 dark:text-gray-300 mb-2'>
-                  <span className='font-medium'>
-                    {t('programmingLanguages')}:
-                  </span>{' '}
-                  C, Python, Scala, F#, SQL
-                </p>
-                <p className='text-gray-700 dark:text-gray-300'>
-                  <span className='font-medium'>{t('librariesTools')}:</span>{' '}
-                  PyTorch, Git, Hugging Face Transformers
-                </p>
-              </div>
-
-              <div>
-                <h3 className='text-xl font-bold text-[rgb(218,41,28)] mb-4'>
-                  {t('aiVision')}
-                </h3>
-                <p className='text-gray-700 dark:text-gray-300'>
-                  {t('aiSkills')}
-                </p>
-              </div>
-
-              <div>
-                <h3 className='text-xl font-bold text-[rgb(218,41,28)] mb-4'>
-                  {t('language')}
-                </h3>
-                <p className='text-gray-700 dark:text-gray-300 mb-1'>
-                  <span className='font-medium'>{t('koreanNative')}</span>
-                </p>
-                <p className='text-gray-700 dark:text-gray-300 mb-1'>
-                  <span className='font-medium'>{t('englishLevel')}</span>
-                </p>
-                <p className='text-gray-700 dark:text-gray-300'>
-                  <span className='font-medium'>{t('otherLanguages')}</span>
-                </p>
-              </div>
-
-              <div>
-                <h3 className='text-xl font-bold text-[rgb(218,41,28)] mb-4'>
-                  {t('communicationCollaboration')}
-                </h3>
-                <p className='text-gray-700 dark:text-gray-300'>
-                  {t('communicationSkills')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+      {/* Skills & languages */}
+      <Section title={t('skillsTitle')}>
+        <dl className='grid gap-x-8 gap-y-3 text-sm sm:grid-cols-[11rem_1fr]'>
+          <dt className='text-neutral-500 dark:text-neutral-400'>
+            {t('programmingLanguages')}
+          </dt>
+          <dd className='text-neutral-800 dark:text-neutral-200'>
+            {t('programmingValue')}
+          </dd>
+          <dt className='text-neutral-500 dark:text-neutral-400'>
+            {t('librariesTools')}
+          </dt>
+          <dd className='text-neutral-800 dark:text-neutral-200'>
+            {t('librariesValue')}
+          </dd>
+          <dt className='text-neutral-500 dark:text-neutral-400'>
+            {t('researchAreas')}
+          </dt>
+          <dd className='text-neutral-800 dark:text-neutral-200'>
+            {t('researchAreasValue')}
+          </dd>
+          <dt className='text-neutral-500 dark:text-neutral-400'>
+            {t('languagesLabel')}
+          </dt>
+          <dd className='space-y-1 text-neutral-800 dark:text-neutral-200'>
+            <p>{t('koreanNative')}</p>
+            <p>{t('englishLevel')}</p>
+            <p>{t('frenchLevel')}</p>
+            <p>{t('germanLevel')}</p>
+          </dd>
+        </dl>
+      </Section>
     </div>
   );
 };

@@ -8,19 +8,12 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-400"
+      className='rounded-full p-2 text-neutral-500 transition-colors hover:bg-neutral-200/60 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-white/10 dark:hover:text-neutral-100'
       aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      <div className="relative w-5 h-5">
-        <div className={`absolute inset-0 ${darkMode ? 'block' : 'hidden'}`}>
-          <FiSun size={20} />
-        </div>
-        <div className={`absolute inset-0 ${!darkMode ? 'block' : 'hidden'}`}>
-          <FiMoon size={20} />
-        </div>
-      </div>
+      {darkMode ? <FiSun size={17} /> : <FiMoon size={17} />}
     </button>
   );
 };
 
-export default ThemeToggle; 
+export default ThemeToggle;
