@@ -139,6 +139,8 @@ const About = () => {
             <Bullet>{t('exp1Point1')}</Bullet>
             <Bullet>{t('exp1Point2')}</Bullet>
             <Bullet>{t('exp1Point3')}</Bullet>
+            <Bullet>{t('acceptedPaper')}</Bullet>
+            <Bullet>{t('ongoingResearch')}</Bullet>
           </Bullets>
         </Entry>
         <Entry
