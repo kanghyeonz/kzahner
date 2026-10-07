@@ -69,14 +69,14 @@ const Bullet = ({ children }) => (
   </li>
 );
 
-const PdfLink = ({ href }) => (
+const PdfLink = ({ href, label = 'PDF' }) => (
   <a
     href={href}
     target='_blank'
     rel='noopener noreferrer'
     className='ml-1.5 whitespace-nowrap text-sm font-medium text-accent transition-colors hover:text-accent-dim dark:text-accent-soft dark:hover:text-accent'
   >
-    [PDF]
+    [{label}]
   </a>
 );
 
@@ -138,8 +138,13 @@ const About = () => {
           <Bullets>
             <Bullet>{t('exp1Point1')}</Bullet>
             <Bullet>{t('exp1Point2')}</Bullet>
-            <Bullet>{t('exp1Point3')}</Bullet>
-            <Bullet>{t('acceptedPaper')}</Bullet>
+            <Bullet>
+              {t('acceptedPaper')}
+              <PdfLink
+                href='https://openreview.net/forum?id=LY0W4Qcohd'
+                label='OpenReview'
+              />
+            </Bullet>
             <Bullet>{t('ongoingResearch')}</Bullet>
           </Bullets>
         </Entry>
@@ -177,7 +182,16 @@ const About = () => {
           sub={t('edu1Degree')}
           date={t('edu1Date')}
           location={t('gifFrance')}
-        />
+        >
+          <Bullets>
+            <Bullet>
+              <span className='font-medium text-neutral-800 dark:text-neutral-200'>
+                {t('edu1CourseworkLabel')}
+              </span>{' '}
+              — {t('edu1Coursework')}
+            </Bullet>
+          </Bullets>
+        </Entry>
         <Entry
           title={t('edu2School')}
           titleHref='https://www.ip-paris.fr/en/education/masters/computer-science-program/master-year-1-data-and-artificial-intelligence'

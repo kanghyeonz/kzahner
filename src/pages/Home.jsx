@@ -16,7 +16,12 @@ export default function Home() {
   const nowRows = [
     ['now1Title', 'now1Org', 'now1Date'],
     ['now2Title', 'now2Org', 'now2Date'],
-    ['now3Title', 'now3Org', 'now3Date'],
+    [
+      'now3Title',
+      'now3Org',
+      'now3Date',
+      'https://openreview.net/forum?id=LY0W4Qcohd',
+    ],
   ];
 
   return (
@@ -78,7 +83,7 @@ export default function Home() {
       >
         <SectionHeader>{t('nowTitle')}</SectionHeader>
         <div className='mt-3 divide-y divide-neutral-200 dark:divide-white/10'>
-          {nowRows.map(([title, org, date]) => (
+          {nowRows.map(([title, org, date, href]) => (
             <div
               key={title}
               className='flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6'
@@ -88,7 +93,18 @@ export default function Home() {
                   {t(title)}
                 </p>
                 <p className='mt-0.5 text-sm text-neutral-500 dark:text-neutral-400'>
-                  {t(org)}
+                  {href ? (
+                    <a
+                      href={href}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='transition-colors hover:text-accent dark:hover:text-accent-soft'
+                    >
+                      {t(org)}
+                    </a>
+                  ) : (
+                    t(org)
+                  )}
                 </p>
               </div>
               <span className='shrink-0 font-mono text-xs text-neutral-400 dark:text-neutral-500'>
