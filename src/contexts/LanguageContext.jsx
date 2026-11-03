@@ -62,7 +62,7 @@ const translations = {
     edu2Point2:
       'Advanced Deep Learning at École Polytechnique: ranked 5th of ~120 students (A+).',
     edu3School: 'Korea Advanced Institute of Science and Technology (KAIST)',
-    edu3Degree: 'B.S. in Computing (cum laude), AI Special Designated Major',
+    edu3Degree: 'B.S. in Computer Science (cum laude), AI Special Designated Major',
     edu3Date: 'Feb 2019 – Feb 2025',
 
     // Research experience
@@ -172,7 +172,7 @@ const translations = {
     edu2Point2:
       'Advanced Deep Learning an der École Polytechnique: Rang 5 von ca. 120 Studierenden (A+).',
     edu3School: 'Korea Advanced Institute of Science and Technology (KAIST)',
-    edu3Degree: 'B.S. in Computing (cum laude), AI Special Designated Major',
+    edu3Degree: 'B.S. in Computer Science (cum laude), AI Special Designated Major',
     edu3Date: 'Feb. 2019 – Feb. 2025',
 
     // Research experience
