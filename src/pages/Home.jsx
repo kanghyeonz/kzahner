@@ -15,7 +15,6 @@ export default function Home() {
 
   const nowRows = [
     ['now1Title', 'now1Org', 'now1Date'],
-    ['now2Title', 'now2Org', 'now2Date'],
     [
       'now3Title',
       'now3Org',
