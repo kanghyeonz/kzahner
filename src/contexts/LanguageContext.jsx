@@ -6,7 +6,7 @@ const LanguageContext = createContext();
 const translations = {
   en: {
     acceptedPaper: "“Attention-Graph Curvature for the Verification of Mathematical Reasoning” — accepted as a poster at the NeurIPS 2026 MATH-AI workshop.",
-    ongoingResearch: "After the internship, the collaboration with Prof. Yanzhu Guo and Prof. Johannes Lutzeyer continued through October 2026 for the publication.",
+    ongoingResearch: "After the internship, the collaboration with Prof. Yanzhu Guo and Prof. Johannes Lutzeyer continued until October 2026 for the publication.",
     // Shared
     fullName: 'Kanghyeon Kim',
     altNames: '김강현 · 金江泫',
