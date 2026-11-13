@@ -20,11 +20,11 @@ const translations = {
 
     // Sections
     chipKrMain: 'South Korean citizen',
-    chipKrItems: ['legal name: 김강현', 'passport name: Kanghyeon Kim'],
+    chipKrItems: ['Legal name: 김강현', 'Passport name: Kanghyeon Kim'],
     chipChMain: 'Swiss resident',
-    chipChItems: ['work (B) permit holder', 'legal name: Kanghyeon Zahner'],
+    chipChItems: ['Work (B) permit holder', 'Legal name: Kanghyeon Zahner'],
     chipFrMain: 'In France for my master’s',
-    chipFrItems: ['until March 2027'],
+    chipFrItems: ['Until March 2027'],
 
     // Locations
     palaiseauFrance: 'Palaiseau, France',
@@ -128,11 +128,11 @@ const translations = {
 
     // Sections
     chipKrMain: 'Südkoreanischer Staatsbürger',
-    chipKrItems: ['amtlicher Name: 김강현', 'Name im Pass: Kanghyeon Kim'],
+    chipKrItems: ['Amtlicher Name: 김강현', 'Name im Pass: Kanghyeon Kim'],
     chipChMain: 'Wohnhaft in der Schweiz',
-    chipChItems: ['Arbeitsbewilligung (Ausweis B)', 'amtlicher Name: Kanghyeon Zahner'],
+    chipChItems: ['Arbeitsbewilligung (Ausweis B)', 'Amtlicher Name: Kanghyeon Zahner'],
     chipFrMain: 'In Frankreich für das Masterstudium',
-    chipFrItems: ['bis März 2027'],
+    chipFrItems: ['Bis März 2027'],
 
     // Locations
     palaiseauFrance: 'Palaiseau, Frankreich',
