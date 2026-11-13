@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Build the Korean serif webfont and its @font-face rules.
+"""Build the Korean webfonts and their @font-face rules.
 
-Crimson Pro has no Hangul, so Hangul is set in Noto Serif KR, served from this
-site so that every computer shows the same letters. Each weight is cut twice:
+Crimson Pro and Inter have no Hangul, so Hangul is set in Noto Serif KR (body)
+and Noto Sans KR (chips and cards), served from this site so that every
+computer shows the same letters. Each weight is cut twice:
 
-  notoserifkr-<weight>-page.woff2  the syllables the site's text uses now
-  notoserifkr-<weight>.woff2       the 2,350 syllables of KS X 1001
+  <name>-<weight>-page.woff2  the syllables the site's text uses now
+  <name>-<weight>.woff2       the 2,350 syllables of KS X 1001
 
 A browser fetches the small "page" file; it fetches the large one only when
 the text has a syllable the small file lacks, so the page stays correct when
 its text changes. Run this again after changing Korean text to keep the small
-file complete:
+files complete:
 
-  python3 scripts/build-korean-font.py [DIR holding NotoSerifKR-*.ttf]
+  python3 scripts/build-korean-font.py
+
+Sources are looked up in scripts/font-sources/ (not tracked) and then in
+~/Library/Fonts, as static files (NotoSerifKR-Regular.ttf, ...) or as the
+variable font (NotoSansKR[wght].ttf), both from
+https://github.com/google/fonts/tree/main/ofl (notoserifkr, notosanskr).
 
 Needs fontTools, and for WOFF2 the brotli module or the brotli command.
 """
@@ -40,12 +46,17 @@ except ImportError:
 
 from fontTools import subset  # noqa: E402
 from fontTools.ttLib import TTFont  # noqa: E402
+from fontTools.varLib import instancer  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SOURCE_DIR = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else '~/Library/Fonts').expanduser()
-WEIGHTS = {400: 'Regular', 500: 'Medium', 700: 'Bold'}
-# Hangul fills its em square, so at Crimson Pro's enlarged scale it is drawn smaller.
-SIZE_ADJUST = '90%'
+SOURCE_DIRS = [ROOT / 'scripts' / 'font-sources', pathlib.Path('~/Library/Fonts').expanduser()]
+STYLES = {400: 'Regular', 500: 'Medium', 700: 'Bold'}
+FAMILIES = [
+    # Hangul fills its em square, so beside Crimson Pro's enlarged scale the
+    # serif is drawn smaller; beside Inter the sans keeps its size.
+    {'family': 'Noto Serif KR', 'file': 'NotoSerifKR', 'weights': [400, 500, 700], 'size_adjust': '90%'},
+    {'family': 'Noto Sans KR', 'file': 'NotoSansKR', 'weights': [400, 500], 'size_adjust': None},
+]
 HANGUL = range(0xAC00, 0xD7A4)
 
 
@@ -65,14 +76,27 @@ def ksx1001_syllables():
     }
 
 
-def cut(source, codepoints, target):
+def open_source(name, weight):
+    """The font at one weight: a static file, or the variable font pinned to it."""
+    for folder in SOURCE_DIRS:
+        static = folder / f'{name}-{STYLES[weight]}.ttf'
+        if static.exists():
+            # Keep the source's timestamp, so that a rerun gives the same bytes.
+            return TTFont(static, recalcTimestamp=False)
+        variable = folder / f'{name}[wght].ttf'
+        if variable.exists():
+            font = TTFont(variable, recalcTimestamp=False)
+            return instancer.instantiateVariableFont(font, {'wght': weight})
+    sys.exit(f'{name}: no source font in {", ".join(map(str, SOURCE_DIRS))}')
+
+
+def cut(name, weight, codepoints, target):
     options = subset.Options()
     options.flavor = 'woff2'
     options.hinting = False
     options.layout_features = []
     options.notdef_outline = True
-    # Keep the source's timestamp, so that a rerun gives the same bytes.
-    font = TTFont(source, recalcTimestamp=False)
+    font = open_source(name, weight)
     subsetter = subset.Subsetter(options)
     subsetter.populate(unicodes=sorted(codepoints))
     subsetter.subset(font)
@@ -93,18 +117,30 @@ def unicode_range(codepoints):
     return ', '.join(runs)
 
 
-def face(weight, file, urange):
+def face(family, weight, file, urange, size_adjust):
+    adjust = f'  size-adjust: {size_adjust};\n' if size_adjust else ''
     return (
         '@font-face {\n'
-        "  font-family: 'Noto Serif KR';\n"
+        f"  font-family: '{family}';\n"
         '  font-style: normal;\n'
         f'  font-weight: {weight};\n'
         '  font-display: swap;\n'
-        f'  size-adjust: {SIZE_ADJUST};\n'
+        f'{adjust}'
         f"  src: url('/fonts/{file}') format('woff2');\n"
         f'  unicode-range: {urange};\n'
         '}\n'
     )
+
+
+def license_file(name, target):
+    """The font's own copyright line over the OFL text."""
+    for folder in SOURCE_DIRS:
+        for source in sorted(folder.glob(f'{name}*.ttf')):
+            notice = TTFont(source, lazy=True)['name'].getDebugName(0)
+            ofl = (target.parent / 'crimsonpro-OFL.txt').read_text(encoding='utf-8')
+            body = ofl[ofl.index('This Font Software is licensed under'):]
+            target.write_text(f'{notice}\n\n{body}', encoding='utf-8')
+            return
 
 
 def main():
@@ -113,25 +149,26 @@ def main():
     fonts = ROOT / 'public' / 'fonts'
     rules = [
         '/* Generated by scripts/build-korean-font.py. Do not edit by hand. */\n',
-        '/* Noto Serif KR, self-hosted; see /fonts/notoserifkr-OFL.txt. For each weight\n'
-        '   the later rule wins where the two ranges overlap, so the small file is\n'
-        '   fetched first and the large one only for a syllable it lacks. */\n',
+        '/* Noto Serif KR and Noto Sans KR, self-hosted; see /fonts/notoserifkr-OFL.txt\n'
+        '   and /fonts/notosanskr-OFL.txt. For each weight the later rule wins where\n'
+        '   the two ranges overlap, so the small file is fetched first and the large\n'
+        '   one only for a syllable it lacks. */\n',
     ]
-    for weight, style in WEIGHTS.items():
-        source = SOURCE_DIR / f'NotoSerifKR-{style}.ttf'
-        big = cut(source, full, fonts / f'notoserifkr-{weight}.woff2')
-        small = cut(source, page, fonts / f'notoserifkr-{weight}-page.woff2')
-        print(f'{weight}: page {small / 1024:.0f} KB ({len(page)} syllables), full {big / 1024:.0f} KB')
-        rules.append(face(weight, f'notoserifkr-{weight}.woff2', 'U+AC00-D7A3'))
-        rules.append(face(weight, f'notoserifkr-{weight}-page.woff2', unicode_range(page)))
+    for spec in FAMILIES:
+        prefix = spec['file'].lower()
+        for weight in spec['weights']:
+            big = cut(spec['file'], weight, full, fonts / f'{prefix}-{weight}.woff2')
+            small = cut(spec['file'], weight, page, fonts / f'{prefix}-{weight}-page.woff2')
+            print(
+                f"{spec['family']} {weight}: page {small / 1024:.0f} KB "
+                f'({len(page)} syllables), full {big / 1024:.0f} KB'
+            )
+            rules.append(face(spec['family'], weight, f'{prefix}-{weight}.woff2', 'U+AC00-D7A3', spec['size_adjust']))
+            rules.append(
+                face(spec['family'], weight, f'{prefix}-{weight}-page.woff2', unicode_range(page), spec['size_adjust'])
+            )
+        license_file(spec['file'], fonts / f'{prefix}-OFL.txt')
     (ROOT / 'src' / 'fonts-ko.css').write_text('\n'.join(rules), encoding='utf-8')
-
-    # The license file: the font's own copyright line over the OFL text.
-    names = TTFont(SOURCE_DIR / 'NotoSerifKR-Regular.ttf', lazy=True)['name']
-    notice = names.getDebugName(0)
-    ofl = (fonts / 'crimsonpro-OFL.txt').read_text(encoding='utf-8')
-    body = ofl[ofl.index('This Font Software is licensed under'):]
-    (fonts / 'notoserifkr-OFL.txt').write_text(f'{notice}\n\n{body}', encoding='utf-8')
 
 
 if __name__ == '__main__':

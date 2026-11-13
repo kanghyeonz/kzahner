@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail } from 'react-icons/fi';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { SiGooglescholar } from 'react-icons/si';
+import { SiGithub, SiGooglescholar } from 'react-icons/si';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionHeader from '../components/SectionHeader';
 import { FLAG_SHADOW } from '../languages';
@@ -250,6 +250,19 @@ export default function Home() {
                 <FaLinkedinIn
                   aria-hidden='true'
                   className='h-3.5 w-3.5 text-[#0A66C2]'
+                />
+              </a>
+              <a
+                href='https://github.com/kanghyeonz'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='GitHub'
+                title='GitHub'
+                className={roundChipClass}
+              >
+                <SiGithub
+                  aria-hidden='true'
+                  className='h-4 w-4 text-[#181717] dark:text-white'
                 />
               </a>
             </div>

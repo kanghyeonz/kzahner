@@ -6,9 +6,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Crimson Pro has no Hangul; Noto Serif KR supplies it (src/fonts-ko.css)
+        // Crimson Pro and Inter have no Hangul; Noto Serif KR and Noto Sans KR
+        // supply it (src/fonts-ko.css)
         primary: ['"Crimson Pro"', '"Noto Serif KR"', ...fontFamily.serif],
-        sans: ['Inter', ...fontFamily.sans],
+        sans: ['Inter', '"Noto Sans KR"', ...fontFamily.sans],
       },
       colors: {
         accent: {

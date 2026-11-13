@@ -37,9 +37,14 @@
 
     <!-- Prevent flash of incorrect theme; background colors live in CSS -->
     <script>
+      // The visitor's choice (see ThemeContext) or else the device's theme
+      let chosenTheme = null;
+      try {
+        chosenTheme = localStorage.getItem('theme-choice');
+      } catch (e) {}
       const isDark =
-        localStorage.theme === 'dark' ||
-        (!localStorage.theme &&
+        chosenTheme === 'dark' ||
+        (chosenTheme !== 'light' &&
           window.matchMedia('(prefers-color-scheme: dark)').matches);
       document.documentElement.classList.toggle('dark', isDark);
     </script>
