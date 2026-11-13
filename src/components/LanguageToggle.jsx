@@ -6,7 +6,6 @@ const LanguageToggle = () => {
   const languages = [
     { code: 'en', fullName: 'English' },
     { code: 'de', fullName: 'Deutsch' },
-    { code: 'ko', fullName: '한국어' },
   ];
 
   const { language, changeLanguage } = useLanguage();

@@ -174,6 +174,16 @@ const About = () => {
         </Entry>
       </Section>
 
+      {/* Talks */}
+      <Section title={t('talks')}>
+        <Entry
+          title={t('talk1Title')}
+          titleHref='https://arxiv.org/abs/2610.16709v1'
+          sub={t('talk1Venue')}
+          date={t('talk1Date')}
+        />
+      </Section>
+
       {/* Education */}
       <Section title={t('education')}>
         <Entry

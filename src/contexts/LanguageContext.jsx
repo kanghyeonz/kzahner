@@ -84,6 +84,12 @@ const translations = {
     proj2Desc:
       'a fine-tuning method that adjusts the training set before each epoch so that a fixed fraction of it (the error rate) consists of instances the model currently gets wrong; in BERT-base experiments on six GLUE tasks, training reached the target accuracy fastest at an error rate of about 50%, rather than at either extreme.',
 
+    // Talks
+    talks: 'Talks',
+    talk1Title: 'Attention-Graph Curvature for the Verification of Mathematical Reasoning',
+    talk1Venue: 'DaSciM Seminar, LIX, École polytechnique',
+    talk1Date: '13 Nov 2026',
+
     // Awards
     awards: 'Awards',
     award1Title: 'KAIST Undergraduate Research Program (URP) Award',
@@ -194,6 +200,12 @@ const translations = {
     proj2Desc:
       'ein Feinabstimmungsverfahren, das die Trainingsmenge vor jeder Epoche so anpasst, dass ein fester Anteil davon (die Fehlerrate) aus Beispielen besteht, die das Modell derzeit falsch vorhersagt; in Experimenten mit BERT-base auf sechs GLUE-Aufgaben erreichte das Training die Zielgenauigkeit bei einer Fehlerrate von etwa 50 % am schnellsten, nicht an einem der beiden Extreme.',
 
+    // Talks
+    talks: 'Vorträge',
+    talk1Title: 'Attention-Graph Curvature for the Verification of Mathematical Reasoning',
+    talk1Venue: 'DaSciM-Seminar, LIX, École polytechnique',
+    talk1Date: '13. Nov. 2026',
+
     // Awards
     awards: 'Auszeichnungen',
     award1Title: 'KAIST Undergraduate Research Program (URP) Award',
@@ -224,115 +236,6 @@ const translations = {
     frenchLevel: 'Französisch — Grundkenntnisse (GER A2)',
     germanLevel: 'Deutsch — Grundkenntnisse (GER A2)',
   },
-  ko: {
-    acceptedPaper: "「Attention-Graph Curvature for the Verification of Mathematical Reasoning」 — NeurIPS 2026 MATH-AI 워크숍 포스터 발표 채택.",
-    ongoingResearch: "인턴십 종료 후에도 논문 작업을 위해 2026년 10월까지 Yanzhu Guo 교수, Johannes Lutzeyer 교수와 협업했습니다.",
-    // Shared
-    fullName: '김강현',
-    altNames: 'Kanghyeon Kim · 金江泫',
-    nameNote: '스위스에서의 법적 성명은 Kanghyeon Zahner입니다.',
-    navHome: '홈',
-    navAbout: '소개',
-    email: '이메일',
-    address: '거주지',
-    currentAddress: '프랑스 지프쉬르이베트',
-
-    // Home page
-    role: '인공지능 · 기계학습',
-    bio: '파리-사클레 고등사범학교(ENS Paris-Saclay)의 MVA 석사과정(M2)에 재학 중입니다. 머신러닝 이론, 표현 학습, 최적화에 관심이 있습니다. 2026년 4월부터 8월까지 텔레콤 파리 연구 인턴으로 어텐션 그래프의 곡률을 이용해 LLM의 수학 추론 오류를 탐지하는 방법을 연구했습니다.',
-    nowTitle: '현재',
-    now1Title: "M2 — MVA 석사과정 재학 중",
-    now1Org: "파리-사클레 고등사범학교(ENS Paris-Saclay)",
-    now1Date: "2026년 9월 – 2027년 9월 (졸업 예정)",
-    now3Title: "MATH-AI 워크숍 논문 · 포스터 발표 채택",
-    now3Org: "NeurIPS 2026 — Attention-Graph Curvature for the Verification of Mathematical Reasoning",
-    now3Date: "2026",
-    viewCV: '전체 이력 보기',
-    recommendation: '추천사',
-    recQuote:
-      '강현이는 약 1년 반 동안 저와 함께 학부 연구원으로 일했습니다. 처음부터 남다른 호기심과 자립심을 보여 주었고, 언어 모델 연구 프로젝트를 주도했으며 AI의 윤리적 측면까지 탐구했습니다. 언제나 준비된 자세로 깊이 생각하고 명확하게 소통했습니다. 그를 지도하는 일은 진정한 즐거움이었고, 앞으로도 사려 깊고 유능한 연구자로 성장하리라 확신합니다.',
-    recAuthor: 'Jiseon Kim, KAIST U&I Lab 박사과정 (2025년 5월)',
-
-    // About page
-    aboutMe: '소개',
-    interestsTitle: '연구 관심사',
-    interestsBody: '머신러닝 이론, 표현 학습, 최적화.',
-    citizenInfo: '대한민국 국적 · 스위스 B 체류허가 소지',
-    nameExplanation:
-      '법적 성명은 김강현(여권상 Kanghyeon Kim)이며, 스위스에서의 법적 성명은 Kanghyeon Zahner입니다.',
-
-    // Locations
-    palaiseauFrance: '프랑스 팔레조',
-    gifFrance: '프랑스 지프쉬르이베트',
-    daejeonKorea: '대한민국 대전',
-    busanKorea: '대한민국 부산',
-
-    // Education
-    education: '학력',
-    edu1School: '파리-사클레 고등사범학교(ENS Paris-Saclay)',
-    edu1Degree: "M2 — MVA (Mathématiques, Vision, Apprentissage) 석사과정 재학 중",
-    edu1Date: '2026년 9월 – 2027년 9월 (졸업 예정)',
-    edu1CourseworkLabel: '1학기 수강 과목 (진행 중)',
-    edu1Coursework:
-      'Convex Optimization and Applications in Machine Learning; Optimal Transport for Machine Learning; Foundations of Distributed and Large Scale Computing Optimization; Introduction to Statistical Learning; Stochastic Calculus in Machine Learning: Sampling and Generative Modeling; Mathematical Methods for Neuroscience.',
-    edu2School: '파리 종합기술원(IP Paris)',
-    edu2Degree: 'M1 — 데이터·인공지능 (Data and Artificial Intelligence)',
-    edu2Date: '2025년 9월 – 2026년 8월',
-    edu2Point1: '전체 평균 성적 17.38/20.',
-    edu2Point2:
-      '에콜 폴리테크니크의 Advanced Deep Learning 과목에서 약 120명 중 5위 (A+).',
-    edu3School: '한국과학기술원(KAIST)',
-    edu3Degree: '전산학 학사 (우등 졸업), 인공지능 특별 지정 전공',
-    edu3Date: '2019년 2월 – 2025년 2월',
-
-    // Research experience
-    experience: '연구 경력',
-    exp1Org: '텔레콤 파리 (Télécom Paris)',
-    exp1Role: '연구 인턴',
-    exp1Date: '2026년 4월 – 8월 31일',
-    exp1Sup: '지도: Yanzhu Guo 교수 · Johannes Lutzeyer 교수',
-    exp1Point1: '어텐션 그래프의 유향 Forman 곡률을 LLM이 생성한 수학 추론의 오류를 탐지하는 신호로 활용했습니다.',
-    exp1Point2: '추론 단계별 검증기 네 가지를 곡률 특징의 유무에 따라 비교하는 실험을 설계·수행·분석했으며, 곡률 특징이 네 검증기 모두의 평균 성능을 향상시켰습니다.',
-    exp2Org: 'U&I Lab, KAIST',
-    exp2Role: '학부 연구원',
-    exp2Date: '2023년 7월 – 2024년 8월',
-    exp2Sup: '지도: Alice Oh 교수',
-    proj1Name: 'Autocomplete Algorithm for LLMs',
-    proj1Desc:
-      '입력으로 만든 n-그램 모델이 다음 몇 개의 토큰을 제안하고 LLM이 이를 한 번의 순전파(forward pass)로 검증하는 디코딩 방법. 5개 LLM과 4가지 과제에서 실험해 일부 모델·과제 조합에서 속도 향상을 확인.',
-    proj2Name: 'Fixed Error Rate Training (FERT)',
-    proj2Desc:
-      '매 에포크 전에 훈련 데이터를 조정해, 모델이 현재 틀리는 예제가 일정 비율(오류율)을 차지하도록 하는 미세 조정 방법. 6개 GLUE 과제에서 BERT-base로 실험한 결과, 양 극단이 아닌 약 50%의 오류율에서 목표 정확도에 가장 빨리 도달.',
-
-    // Awards
-    awards: '수상',
-    award1Title: 'KAIST 학부생 연구 프로그램(URP) 상',
-    award1Date: '2024년 겨울·봄',
-    award1Desc: '“Autocomplete Algorithm for LLMs” 연구로 수상.',
-    award2Title: 'Dean’s List, KAIST',
-    award2Date: '2019년 9월',
-    award2Desc: 'KAIST 1학년 전체 상위 2% 평점.',
-
-    // Military service
-    military: '병역',
-    milOrg: '대한민국 육군 제53보병사단',
-    milDate: '2020년 2월 – 2021년 8월',
-    milDesc: "KAIST 학부 재학 중 군 복무. 8명의 분대원을 이끄는 분대장으로 복무했으며, 병장으로 만기 전역.",
-
-    // Skills & languages
-    skillsTitle: '기술 & 언어',
-    programmingLanguages: '프로그래밍 언어',
-    programmingValue: 'C, Python, Scala, F#, SQL',
-    librariesTools: '라이브러리 & 도구',
-    librariesValue: 'PyTorch, Hugging Face (Transformers, Datasets, Accelerate), PyTorch Geometric, scikit-learn, NumPy, SciPy, pandas, Git, Linux, LaTeX',
-    researchAreas: '연구 분야',
-    researchAreasValue: "머신러닝 이론 · 표현 학습 · 최적화",
-    languagesLabel: '언어',
-    koreanNative: '한국어 — 모국어',
-    englishLevel: '영어 — 상급 (IELTS 8.0)',
-    frenchLevel: '프랑스어 — 초급 (CEFR A2)',
-    germanLevel: '독일어 — 초급 (CEFR A2)',
-  },
 };
 
 export const LanguageProvider = ({ children }) => {
@@ -340,8 +243,8 @@ export const LanguageProvider = ({ children }) => {
     // Check if user has a saved preference
     if (typeof window !== 'undefined') {
       const savedLang = localStorage.getItem('language');
-      // Return saved language or default to English
-      return savedLang || 'en';
+      // Return the saved language if it is still offered, else English
+      return translations[savedLang] ? savedLang : 'en';
     }
     return 'en';
   });
