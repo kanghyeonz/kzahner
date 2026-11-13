@@ -5,12 +5,10 @@ const LanguageContext = createContext();
 
 const translations = {
   en: {
-    ongoingResearch: "After the internship, the collaboration with Prof. Johannes Lutzeyer and Prof. Yanzhu Guo continued until October 2026 for the publication.",
+    ongoingResearch: "After the internship, the collaboration with Prof. Johannes F. Lutzeyer and Prof. Yanzhu Guo continued until October 2026 for the publication.",
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'You can change it later at the top right.',
-    email: 'Email',
-    address: 'Location',
 
     // Hero
     bio: 'I am a master’s student in the MVA (M2) program of the Department of Mathematics at École normale supérieure Paris-Saclay. My research interests include machine learning theory, representation learning, and optimization.',
@@ -21,7 +19,6 @@ const translations = {
     recAuthorRest: ', Ph.D. candidate at U&I Lab, KAIST (May 2025)',
 
     // Sections
-    interests: ['Machine learning theory', 'Representation learning', 'Optimization'],
     chipKrMain: 'South Korean citizen',
     chipKrItems: ['legal name: 김강현', 'passport name: Kanghyeon Kim'],
     chipChMain: 'Swiss resident',
@@ -68,10 +65,10 @@ const translations = {
     exp1Role: 'Research Intern',
     supervisedBy: 'Supervised by',
     andWord: 'and',
-    supLutzeyer: 'Prof. Johannes Lutzeyer',
+    supLutzeyer: 'Prof. Johannes F. Lutzeyer',
     supGuo: 'Prof. Yanzhu Guo',
     supOh: 'Prof. Alice Oh',
-    exp1Date: 'Apr 2026 – 31 Aug 2026',
+    exp1Date: 'Apr 2026 – Aug 2026',
     exp1Point1: 'Used directed Forman curvature of attention graphs as a signal for detecting errors in LLM-generated mathematical reasoning.',
     exp1Point2: 'Designed, ran, and analyzed experiments comparing four step-level verifiers with and without curvature features, finding that curvature improved the mean performance of all four.',
     exp2Org: 'U&I Lab, KAIST',
@@ -109,7 +106,6 @@ const translations = {
     skillsTitle: 'Skills & Languages',
     programmingLanguages: 'Programming',
     librariesTools: 'Libraries & tools',
-    researchAreas: 'Research areas',
     languagesLabel: 'Languages',
     languages: [
       ['Korean', 'native'],
@@ -119,12 +115,10 @@ const translations = {
     ],
   },
   de: {
-    ongoingResearch: "Nach dem Praktikum wurde die Zusammenarbeit mit Prof. Johannes Lutzeyer und Prof. Yanzhu Guo für die Publikation bis Oktober 2026 fortgesetzt.",
+    ongoingResearch: "Nach dem Praktikum wurde die Zusammenarbeit mit Prof. Johannes F. Lutzeyer und Prof. Yanzhu Guo für die Publikation bis Oktober 2026 fortgesetzt.",
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'Später oben rechts änderbar.',
-    email: 'E-Mail',
-    address: 'Standort',
 
     // Hero
     bio: 'Ich studiere im Master MVA (M2) am Fachbereich Mathematik der École normale supérieure Paris-Saclay. Meine Forschungsinteressen sind die Theorie des maschinellen Lernens, Repräsentationslernen und Optimierung.',
@@ -133,7 +127,6 @@ const translations = {
     recAuthorRest: ', Doktorandin am U&I Lab, KAIST (Mai 2025)',
 
     // Sections
-    interests: ['Theorie des maschinellen Lernens', 'Repräsentationslernen', 'Optimierung'],
     chipKrMain: 'Südkoreanischer Staatsbürger',
     chipKrItems: ['amtlicher Name: 김강현', 'Name im Pass: Kanghyeon Kim'],
     chipChMain: 'Wohnhaft in der Schweiz',
@@ -180,10 +173,10 @@ const translations = {
     exp1Role: 'Forschungspraktikant',
     supervisedBy: 'Betreut von',
     andWord: 'und',
-    supLutzeyer: 'Prof. Johannes Lutzeyer',
+    supLutzeyer: 'Prof. Johannes F. Lutzeyer',
     supGuo: 'Prof. Yanzhu Guo',
     supOh: 'Prof. Alice Oh',
-    exp1Date: 'Apr. 2026 – 31. Aug. 2026',
+    exp1Date: 'Apr. 2026 – Aug. 2026',
     exp1Point1: 'Nutzung gerichteter Forman-Krümmung von Attention-Graphen als Signal zur Erkennung von Fehlern in mathematischen Argumentationen von LLMs.',
     exp1Point2: 'Konzeption, Durchführung und Auswertung von Experimenten, die vier schrittweise Verifikatoren mit und ohne Krümmungsmerkmale vergleichen; die Krümmung verbesserte die mittlere Leistung aller vier.',
     exp2Org: 'U&I Lab, KAIST',
@@ -222,7 +215,6 @@ const translations = {
     skillsTitle: 'Kenntnisse & Sprachen',
     programmingLanguages: 'Programmierung',
     librariesTools: 'Bibliotheken & Tools',
-    researchAreas: 'Forschungsfelder',
     languagesLabel: 'Sprachen',
     languages: [
       ['Koreanisch', 'Muttersprache'],
@@ -232,12 +224,10 @@ const translations = {
     ],
   },
   ko: {
-    ongoingResearch: "인턴십 종료 후에도 논문 작업을 위해 2026년 10월까지 Johannes Lutzeyer 교수, Yanzhu Guo 교수와 협업했습니다.",
+    ongoingResearch: "인턴십 종료 후에도 논문 작업을 위해 2026년 10월까지 Johannes F. Lutzeyer 교수, Yanzhu Guo 교수와 협업했습니다.",
     // Shared
     fullName: '김강현',
     languageHint: '나중에 오른쪽 위에서 바꿀 수 있습니다.',
-    email: '이메일',
-    address: '거주지',
 
     // Hero
     bio: '파리-사클레 고등사범학교(École normale supérieure Paris-Saclay) 수학과의 석사과정(M2 MVA)에 재학 중입니다. 머신러닝 이론, 표현 학습, 최적화에 관심이 있습니다.',
@@ -246,7 +236,6 @@ const translations = {
     recAuthorRest: ', KAIST U&I Lab 박사과정 (2025년 5월)',
 
     // Sections
-    interests: ['머신러닝 이론', '표현 학습', '최적화'],
     chipKrMain: '대한민국 국적',
     chipKrItems: ['법적 성명: 김강현', '여권 성명: Kanghyeon Kim'],
     chipChMain: '스위스 거주',
@@ -293,10 +282,10 @@ const translations = {
     exp1Role: '연구 인턴',
     supervisedBy: '지도:',
     andWord: '·',
-    supLutzeyer: 'Johannes Lutzeyer 교수',
+    supLutzeyer: 'Johannes F. Lutzeyer 교수',
     supGuo: 'Yanzhu Guo 교수',
     supOh: 'Alice Oh 교수',
-    exp1Date: '2026년 4월 – 8월 31일',
+    exp1Date: '2026년 4월 – 2026년 8월',
     exp1Point1: '어텐션 그래프의 유향 Forman 곡률을 LLM이 생성한 수학 추론의 오류를 탐지하는 신호로 활용했습니다.',
     exp1Point2: '추론 단계별 검증기 네 가지를 곡률 특징의 유무에 따라 비교하는 실험을 설계·수행·분석했으며, 곡률 특징이 네 검증기 모두의 평균 성능을 향상시켰습니다.',
     exp2Org: 'U&I Lab, KAIST',
@@ -334,7 +323,6 @@ const translations = {
     skillsTitle: '기술 & 언어',
     programmingLanguages: '프로그래밍 언어',
     librariesTools: '라이브러리 & 도구',
-    researchAreas: '연구 분야',
     languagesLabel: '언어',
     languages: [
       ['한국어', '모국어'],

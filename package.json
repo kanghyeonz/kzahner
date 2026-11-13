@@ -1,6 +1,6 @@
 {
   "name": "kanghyeon-zahner-website",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

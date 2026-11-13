@@ -211,7 +211,7 @@ export default function Home() {
                 in the small frame, less so in the sidebar-wide one. */}
             <div className='h-24 w-24 shrink-0 overflow-hidden rounded-lg shadow-md dark:shadow-none lg:aspect-[5/4] lg:h-auto lg:w-full'>
               <img
-                src='/img/kanghyeon.png'
+                src='/img/kanghyeon.jpg'
                 alt={t('fullName')}
                 className='h-full w-full origin-[64.7%_39.3%] scale-[1.6] object-cover lg:scale-[1.25]'
               />
@@ -255,7 +255,7 @@ export default function Home() {
             </div>
           </div>
           <hr className='mt-4 border-neutral-200 dark:border-white/10' />
-          <ul className='mt-4 space-y-2'>
+          <ul className='mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap lg:flex-col'>
             <FlagCard
               flagSrc='/img/flags/kr.svg'
               main={t('chipKrMain')}
@@ -493,16 +493,6 @@ export default function Home() {
             <dd>
               <Chips>
                 {LIBRARIES.map((item) => (
-                  <Chip key={item} main={item} />
-                ))}
-              </Chips>
-            </dd>
-            <dt className='text-neutral-500 dark:text-neutral-400'>
-              {t('researchAreas')}
-            </dt>
-            <dd>
-              <Chips>
-                {t('interests').map((item) => (
                   <Chip key={item} main={item} />
                 ))}
               </Chips>
