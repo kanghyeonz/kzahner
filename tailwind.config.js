@@ -6,8 +6,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
-        mono: ['"IBM Plex Mono"', ...fontFamily.mono],
+        // Crimson Pro has no Hangul; Noto Serif KR supplies it (src/fonts-ko.css)
+        primary: ['"Crimson Pro"', '"Noto Serif KR"', ...fontFamily.serif],
+        sans: ['Inter', ...fontFamily.sans],
       },
       colors: {
         accent: {
@@ -17,7 +18,7 @@ module.exports = {
         },
       },
       maxWidth: {
-        content: '44rem',
+        content: '72rem',
       },
     },
   },

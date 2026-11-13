@@ -1,13 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { FiGlobe } from 'react-icons/fi';
+import { LANGUAGES, FLAG_SHADOW } from '../languages';
 
 const LanguageToggle = () => {
-  const languages = [
-    { code: 'en', fullName: 'English' },
-    { code: 'de', fullName: 'Deutsch' },
-  ];
-
   const { language, changeLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -70,7 +66,7 @@ const LanguageToggle = () => {
         className={`absolute right-0 top-full z-50 w-32 pt-1 ${!isOpen ? 'hidden' : 'block'}`}
       >
         <div className='rounded-xl border border-neutral-200 bg-white py-1 shadow-lg dark:border-white/10 dark:bg-neutral-900'>
-          {languages.map((lang) => (
+          {LANGUAGES.map((lang) => (
             <button
               key={lang.code}
               onClick={(e) => handleLanguageChange(lang.code, e)}
@@ -80,9 +76,13 @@ const LanguageToggle = () => {
                   : 'text-neutral-600 dark:text-neutral-300'
               }`}
             >
-              <span className='mr-2 text-xs uppercase tabular-nums text-neutral-400 dark:text-neutral-500'>
-                {lang.code}
-              </span>
+              <img
+                src={lang.flag}
+                alt=''
+                aria-hidden='true'
+                className='mr-2 h-5 w-5 shrink-0'
+                style={FLAG_SHADOW}
+              />
               <span>{lang.fullName}</span>
             </button>
           ))}
