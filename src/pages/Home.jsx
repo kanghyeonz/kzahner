@@ -420,7 +420,6 @@ export default function Home() {
             <Bullets>
               <Bullet>{t('exp1Point1')}</Bullet>
               <Bullet>{t('exp1Point2')}</Bullet>
-              <Bullet>{t('ongoingResearch')}</Bullet>
             </Bullets>
           </Entry>
           <Entry

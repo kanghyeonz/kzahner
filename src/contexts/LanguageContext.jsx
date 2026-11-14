@@ -5,7 +5,6 @@ const LanguageContext = createContext();
 
 const translations = {
   en: {
-    ongoingResearch: "After the internship, the collaboration with Prof. Johannes F. Lutzeyer and Prof. Yanzhu Guo continued until October 2026 for the publication.",
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'You can change it later at the top right.',
@@ -119,7 +118,6 @@ const translations = {
     ],
   },
   de: {
-    ongoingResearch: "Nach dem Praktikum wurde die Zusammenarbeit mit Prof. Johannes F. Lutzeyer und Prof. Yanzhu Guo für die Publikation bis Oktober 2026 fortgesetzt.",
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'Später oben rechts änderbar.',
@@ -231,7 +229,6 @@ const translations = {
     ],
   },
   ko: {
-    ongoingResearch: "인턴십 종료 후에도 논문 작업을 위해 2026년 10월까지 Johannes F. Lutzeyer 교수, Yanzhu Guo 교수와 협업했습니다.",
     // Shared
     fullName: '김강현',
     languageHint: '나중에 오른쪽 위에서 바꿀 수 있습니다.',
