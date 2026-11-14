@@ -9,6 +9,10 @@ const translations = {
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'You can change it later at the top right.',
+    // Separators: after a label or a name, after a role, before a quote's author
+    sepLabel: ' — ',
+    sepRole: ' — ',
+    recDash: '— ',
 
     // Hero
     bio: 'I am a master’s student in the MVA (M2) program of the Department of Mathematics at École normale supérieure Paris-Saclay. My research interests include machine learning theory, representation learning, and optimization.',
@@ -64,12 +68,12 @@ const translations = {
     exp1Org2: 'École polytechnique',
     exp1Role: 'Research Intern',
     supervisedBy: 'Supervised by',
-    andWord: 'and',
+    andWord: ' and ',
     supLutzeyer: 'Prof. Johannes F. Lutzeyer',
     supGuo: 'Prof. Yanzhu Guo',
     supOh: 'Prof. Alice Oh',
     exp1Date: 'Apr 2026 – Aug 2026',
-    exp1Point1: 'Used directed Forman curvature of attention graphs as a signal for detecting errors in LLM-generated mathematical reasoning.',
+    exp1Point1: 'Led a research project on using directed Forman curvature of attention graphs as a signal for detecting errors in LLM-generated mathematical reasoning.',
     exp1Point2: 'Designed, ran, and analyzed experiments comparing four step-level verifiers with and without curvature features, finding that curvature improved the mean performance of all four.',
     exp2Org: 'U&I Lab, KAIST',
     exp2Role: 'Undergraduate Researcher',
@@ -100,7 +104,7 @@ const translations = {
     military: 'Military Service',
     milOrg: 'Republic of Korea Army, 53rd Infantry Division',
     milDate: 'Feb 2020 – Aug 2021',
-    milDesc: "Military service during my KAIST undergraduate studies. Squad leader responsible for eight soldiers; honorably discharged with the rank of sergeant.",
+    milDesc: "Military service during my KAIST undergraduate studies. Served as a squad leader; honorably discharged with the rank of sergeant.",
 
     // Skills & languages
     skillsTitle: 'Skills & Languages',
@@ -119,6 +123,9 @@ const translations = {
     // Shared
     fullName: 'Kanghyeon Kim',
     languageHint: 'Später oben rechts änderbar.',
+    sepLabel: ' — ',
+    sepRole: ' — ',
+    recDash: '— ',
 
     // Hero
     bio: 'Ich studiere im Master MVA (M2) am Fachbereich Mathematik der École normale supérieure Paris-Saclay. Meine Forschungsinteressen sind die Theorie des maschinellen Lernens, Repräsentationslernen und Optimierung.',
@@ -172,12 +179,12 @@ const translations = {
     exp1Org2: 'École polytechnique',
     exp1Role: 'Forschungspraktikant',
     supervisedBy: 'Betreut von',
-    andWord: 'und',
+    andWord: ' und ',
     supLutzeyer: 'Prof. Johannes F. Lutzeyer',
     supGuo: 'Prof. Yanzhu Guo',
     supOh: 'Prof. Alice Oh',
     exp1Date: 'Apr. 2026 – Aug. 2026',
-    exp1Point1: 'Nutzung gerichteter Forman-Krümmung von Attention-Graphen als Signal zur Erkennung von Fehlern in mathematischen Argumentationen von LLMs.',
+    exp1Point1: 'Leitung eines Forschungsprojekts zur Nutzung gerichteter Forman-Krümmung von Attention-Graphen als Signal zur Erkennung von Fehlern in mathematischen Argumentationen von LLMs.',
     exp1Point2: 'Konzeption, Durchführung und Auswertung von Experimenten, die vier schrittweise Verifikatoren mit und ohne Krümmungsmerkmale vergleichen; die Krümmung verbesserte die mittlere Leistung aller vier.',
     exp2Org: 'U&I Lab, KAIST',
     exp2Role: 'Studentischer Forscher',
@@ -209,7 +216,7 @@ const translations = {
     military: 'Militärdienst',
     milOrg: 'Streitkräfte der Republik Korea, 53. Infanteriedivision',
     milDate: 'Feb. 2020 – Aug. 2021',
-    milDesc: "Militärdienst während des Bachelorstudiums am KAIST. Gruppenführer mit Verantwortung für acht Soldaten; ehrenhaft im Rang eines Unteroffiziers (Sergeant) entlassen.",
+    milDesc: "Militärdienst während des Bachelorstudiums am KAIST. Als Gruppenführer gedient; ehrenhaft im Rang eines Unteroffiziers (Sergeant) entlassen.",
 
     // Skills & languages
     skillsTitle: 'Kenntnisse & Sprachen',
@@ -228,12 +235,16 @@ const translations = {
     // Shared
     fullName: '김강현',
     languageHint: '나중에 오른쪽 위에서 바꿀 수 있습니다.',
+    // Korean takes no dash: a colon after a label, a middle dot after a role
+    sepLabel: ': ',
+    sepRole: ' · ',
+    recDash: '',
 
     // Hero
     bio: '파리-사클레 고등사범학교(École normale supérieure Paris-Saclay) 수학과의 석사과정(M2 MVA)에 재학 중입니다. 머신러닝 이론, 표현 학습, 최적화에 관심이 있습니다.',
     recommendation: '추천사',
     recAuthorName: '김지선',
-    recAuthorRest: ', KAIST U&I Lab 박사과정 (2025년 5월)',
+    recAuthorRest: ', KAIST U&I Lab 박사과정(2025년 5월)',
 
     // Sections
     chipKrMain: '대한민국 국적',
@@ -252,28 +263,28 @@ const translations = {
     // Education
     education: '학력',
     edu1School: '파리-사클레 고등사범학교',
-    edu1DegreePre: 'M2 — ',
+    edu1DegreePre: 'M2: ',
     edu1DegreeMain: 'MVA 석사과정',
     edu1DegreeRest: ' 재학 중',
-    edu1Date: '2026년 9월 – 2027년 9월 (졸업 예정)',
-    edu1CourseworkLabel: '1학기 수강 과목 (진행 중)',
+    edu1Date: '2026년 9월~2027년 9월(예정)',
+    edu1CourseworkLabel: '1학기 수강 과목(진행 중)',
     edu1Coursework:
       'Convex Optimization and Applications in Machine Learning; Optimal Transport for Machine Learning; Foundations of Distributed and Large Scale Computing Optimization; Introduction to Statistical Learning; Stochastic Calculus in Machine Learning: Sampling and Generative Modeling; Mathematical Methods for Neuroscience.',
     edu2School: '파리 종합기술원',
-    edu2DegreePre: 'M1 — ',
+    edu2DegreePre: 'M1: ',
     edu2DegreeMain: '데이터·인공지능',
-    edu2Date: '2025년 9월 – 2026년 8월',
-    edu2Point1: '전체 평균 성적 17.38/20.',
-    edu3School: '한국과학기술원',
+    edu2Date: '2025년 9월~2026년 8월',
+    edu2Point1: '전체 평균 성적은 17.38/20입니다.',
+    edu3School: '한국과학기술원(KAIST)',
     edu3DegreeMain: '전산학 학사',
-    edu3DegreeRest: ' (우등 졸업), 인공지능 특별 지정 전공',
-    edu3Date: '2019년 2월 – 2025년 2월',
+    edu3DegreeRest: '(우등 졸업), 인공지능 특별 지정 전공',
+    edu3Date: '2019년 2월~2025년 2월',
 
     // Publications
     publications: '논문',
     pub1Title: 'Attention-Graph Curvature for the Verification of Mathematical Reasoning',
-    pub1Venue: 'NeurIPS 2026 Workshop on Mathematical Reasoning and AI (MATH-AI), 포스터 발표 채택.',
-    pub1Date: '2026',
+    pub1Venue: 'NeurIPS 2026 Workshop on Mathematical Reasoning and AI (MATH-AI)에 포스터로 채택되었습니다.',
+    pub1Date: '2026년',
 
     // Research experience
     experience: '연구 경력',
@@ -281,22 +292,22 @@ const translations = {
     exp1Org2: '에콜 폴리테크니크',
     exp1Role: '연구 인턴',
     supervisedBy: '지도:',
-    andWord: '·',
+    andWord: ', ',
     supLutzeyer: 'Johannes F. Lutzeyer 교수',
     supGuo: 'Yanzhu Guo 교수',
     supOh: 'Alice Oh 교수',
-    exp1Date: '2026년 4월 – 2026년 8월',
-    exp1Point1: '어텐션 그래프의 유향 Forman 곡률을 LLM이 생성한 수학 추론의 오류를 탐지하는 신호로 활용했습니다.',
-    exp1Point2: '추론 단계별 검증기 네 가지를 곡률 특징의 유무에 따라 비교하는 실험을 설계·수행·분석했으며, 곡률 특징이 네 검증기 모두의 평균 성능을 향상시켰습니다.',
-    exp2Org: 'U&I Lab, KAIST',
+    exp1Date: '2026년 4월~2026년 8월',
+    exp1Point1: '어텐션 그래프의 유향 Forman 곡률을 LLM이 생성한 수학 추론의 오류를 탐지하는 신호로 활용하는 연구를 주도했습니다.',
+    exp1Point2: '추론 단계별 검증기 4가지를 곡률 특징의 유무에 따라 비교하는 실험을 설계·수행·분석했으며, 곡률 특징이 검증기 4가지 모두의 평균 성능을 향상시켰습니다.',
+    exp2Org: 'KAIST U&I Lab',
     exp2Role: '학부 연구원',
-    exp2Date: '2023년 7월 – 2024년 8월',
+    exp2Date: '2023년 7월~2024년 8월',
     proj1Name: 'Autocomplete Algorithm for LLMs',
     proj1Desc:
-      '입력으로 만든 n-그램 모델이 다음 몇 개의 토큰을 제안하고 LLM이 이를 한 번의 순전파(forward pass)로 검증하는 디코딩 방법. 5개 LLM과 4가지 과제에서 실험해 일부 모델·과제 조합에서 속도 향상을 확인.',
+      '입력으로 만든 n-그램 모델이 다음 몇 개의 토큰을 제안하고 LLM이 이를 한 번의 순전파(forward pass)로 검증하는 디코딩 방법입니다. 5개 LLM과 4가지 과제에서 실험해 일부 모델·과제 조합에서 속도 향상을 확인했습니다.',
     proj2Name: 'Fixed Error Rate Training (FERT)',
     proj2Desc:
-      '매 에포크 전에 훈련 데이터를 조정해, 모델이 현재 틀리는 예제가 일정 비율(오류율)을 차지하도록 하는 미세 조정 방법. 6개 GLUE 과제에서 BERT-base로 실험한 결과, 양 극단이 아닌 약 50%의 오류율에서 목표 정확도에 가장 빨리 도달.',
+      '매 에포크 전에 훈련 데이터를 조정해, 모델이 현재 틀리는 예제가 일정 비율(오류율)을 차지하도록 하는 미세 조정 방법입니다. 6개 GLUE 과제에서 BERT-base로 실험한 결과, 양 극단이 아닌 약 50%의 오류율에서 목표 정확도에 가장 빨리 도달했습니다.',
 
     // Talks
     talks: '학술 발표',
@@ -308,27 +319,27 @@ const translations = {
     awards: '수상',
     award1Title: 'KAIST 학부생 연구 프로그램(URP) 상',
     award1Date: '2024년 겨울·봄',
-    award1Desc: '“Autocomplete Algorithm for LLMs” 연구로 수상.',
-    award2Title: 'Dean’s List, KAIST',
+    award1Desc: '“Autocomplete Algorithm for LLMs” 연구로 수상했습니다.',
+    award2Title: 'KAIST Dean’s List',
     award2Date: '2019년 9월',
-    award2Desc: 'KAIST 1학년 전체 상위 2% 평점.',
+    award2Desc: 'KAIST 1학년 전체에서 평점 상위 2%에 들었습니다.',
 
     // Military service
     military: '병역',
     milOrg: '대한민국 육군 제53보병사단',
-    milDate: '2020년 2월 – 2021년 8월',
-    milDesc: "KAIST 학부 재학 중 군 복무. 8명의 분대원을 이끄는 분대장으로 복무했으며, 병장으로 만기 전역.",
+    milDate: '2020년 2월~2021년 8월',
+    milDesc: "KAIST 학부 재학 중에 군 복무를 했습니다. 분대원을 이끄는 분대장으로 복무했고, 병장으로 만기 전역했습니다.",
 
     // Skills & languages
-    skillsTitle: '기술 & 언어',
+    skillsTitle: '기술·언어',
     programmingLanguages: '프로그래밍 언어',
-    librariesTools: '라이브러리 & 도구',
+    librariesTools: '라이브러리·도구',
     languagesLabel: '언어',
     languages: [
       ['한국어', '모국어'],
-      ['영어', '상급 (IELTS 8.0)'],
-      ['프랑스어', '초급 (CEFR A2)'],
-      ['독일어', '초급 (CEFR A2)'],
+      ['영어', '상급(IELTS 8.0)'],
+      ['프랑스어', '초급(CEFR A2)'],
+      ['독일어', '초급(CEFR A2)'],
     ],
   },
 };
@@ -382,8 +393,12 @@ export const LanguageProvider = ({ children }) => {
     }
   };
 
+  // A language's own string, even an empty one; English where it has none
   const t = (key) => {
-    return translations[language][key] || translations.en[key] || key;
+    const own = translations[language][key];
+    if (own !== undefined) return own;
+    const english = translations.en[key];
+    return english !== undefined ? english : key;
   };
 
   return (

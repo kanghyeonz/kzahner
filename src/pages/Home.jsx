@@ -320,8 +320,9 @@ export default function Home() {
               <Bullet>
                 <span className='font-medium text-neutral-800 dark:text-neutral-200'>
                   {t('edu1CourseworkLabel')}
-                </span>{' '}
-                — {t('edu1Coursework')}
+                </span>
+                {t('sepLabel')}
+                {t('edu1Coursework')}
               </Bullet>
             </Bullets>
           </Entry>
@@ -401,11 +402,13 @@ export default function Home() {
             }
             sub={
               <>
-                {t('exp1Role')} — {t('supervisedBy')}{' '}
+                {t('exp1Role')}
+                {t('sepRole')}
+                {t('supervisedBy')}{' '}
                 <PersonLink href='https://johanneslutzeyer.com'>
                   {t('supLutzeyer')}
-                </PersonLink>{' '}
-                {t('andWord')}{' '}
+                </PersonLink>
+                {t('andWord')}
                 <PersonLink href='https://yanzhuguo.github.io'>
                   {t('supGuo')}
                 </PersonLink>
@@ -425,7 +428,9 @@ export default function Home() {
             titleHref='https://uilab.kr'
             sub={
               <>
-                {t('exp2Role')} — {t('supervisedBy')}{' '}
+                {t('exp2Role')}
+                {t('sepRole')}
+                {t('supervisedBy')}{' '}
                 <PersonLink href='https://aliceoh9.github.io'>
                   {t('supOh')}
                 </PersonLink>
@@ -438,15 +443,17 @@ export default function Home() {
               <Bullet>
                 <span className='font-medium text-neutral-800 dark:text-neutral-200'>
                   {t('proj1Name')}
-                </span>{' '}
-                — {t('proj1Desc')}
+                </span>
+                {t('sepLabel')}
+                {t('proj1Desc')}
                 <PdfLink href='/documents/AAfLM.pdf' />
               </Bullet>
               <Bullet>
                 <span className='font-medium text-neutral-800 dark:text-neutral-200'>
                   {t('proj2Name')}
-                </span>{' '}
-                — {t('proj2Desc')}
+                </span>
+                {t('sepLabel')}
+                {t('proj2Desc')}
                 <PdfLink href='/documents/FERT.pdf' />
               </Bullet>
             </Bullets>
@@ -530,7 +537,7 @@ export default function Home() {
               “{t('recQuote')}”
             </blockquote>
             <p className='mt-3 pl-5 text-sm text-neutral-500 dark:text-neutral-400'>
-              —{' '}
+              {t('recDash')}
               <PersonLink href='https://hikoseon12.github.io/'>
                 {t('recAuthorName')}
               </PersonLink>
