@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanghyeon Kim</title>
+    <meta
+      name="description"
+      content="Kanghyeon Kim (김강현) — MVA master's student at École normale supérieure Paris-Saclay, with research on attention-graph curvature and mathematical reasoning. Legally registered in Switzerland as Kanghyeon Zahner."
+    />
+    <meta name="author" content="Kanghyeon Kim" />
+    <meta
+      name="keywords"
+      content="Kanghyeon Kim, Kanghyeon Zahner, 김강현, machine learning theory, representation learning, optimization, MVA, ENS Paris-Saclay, IP Paris, KAIST"
+    />
+    <meta name="apple-mobile-web-app-title" content="Kanghyeon Kim" />
+    <meta name="application-name" content="Kanghyeon Kim" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Kanghyeon Kim" />
+    <meta
+      property="og:description"
+      content="MVA master's student at École normale supérieure Paris-Saclay. Research interests: machine learning theory, representation learning, and optimization."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kzahner.com" />
+    <meta property="og:image" content="https://kzahner.com/favicon/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kanghyeon Kim" />
+    <meta name="twitter:image" content="https://kzahner.com/favicon/og.jpg" />
+    <meta
+      name="twitter:description"
+      content="MVA master's student at École normale supérieure Paris-Saclay. Research interests: machine learning theory, representation learning, and optimization."
+    />
+
+    <!-- Prevent flash of incorrect theme; background colors live in CSS -->
+    <script>
+      // The visitor's choice (see ThemeContext) or else the device's theme
+      let chosenTheme = null;
+      try {
+        chosenTheme = localStorage.getItem('theme-choice');
+      } catch (e) {}
+      const isDark =
+        chosenTheme === 'dark' ||
+        (chosenTheme !== 'light' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document.documentElement.classList.toggle('dark', isDark);
+    </script>
+
+    <!-- GitHub Pages SPA routing - Redirect script -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // This script checks to see if a redirect is present in the query string,
+      // converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon/favicon.svg?v=2" type="image/svg+xml" />
+    <link rel="icon" href="/favicon/favicon.ico?v=2" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png?v=2" />
+    <meta
+      name="msapplication-TileImage"
+      content="/favicon/favicon-192.png?v=2"
+    />
+    <meta name="msapplication-TileColor" content="#5e72e4" />
+
+    <!-- Theme color for light mode -->
+    <meta
+      name="theme-color"
+      content="#fafafa"
+      media="(prefers-color-scheme: light)"
+    />
+    <!-- Theme color for dark mode -->
+    <meta
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script type="module" crossorigin src="/assets/index-DARHlrSg.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-gzYBsZcB.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
