@@ -1,0 +1,6 @@
+kr.svg, ch.svg, fr.svg, gb.svg and de.svg are the waved region flags from the Noto Emoji
+project (https://github.com/googlefonts/noto-emoji, directory
+third_party/region-flags/waved-svg). According to that project, the flag
+images under third_party/region-flags are in the public domain or otherwise
+exempt from copyright. The outline drawn around each flag has been removed
+here; the page adds a soft shadow instead.
