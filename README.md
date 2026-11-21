@@ -1,5 +1,7 @@
 # kzahner.com
 
+_This project has been developed mostly by AI._
+
 Personal website built with Vite, React, and Tailwind CSS.
 
 ## Features
